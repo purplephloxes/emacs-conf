@@ -19,15 +19,13 @@
 (use-package go-mode) ;; for psws
 (use-package slime) ;; for lisping
 
-
-
-;; eglot hooks
+;; lang hooks
 ;;; cc
 (add-hook 'c-mode-hook #'eglot-ensure)
 (add-hook 'c++-mode-hook #'eglot-ensure)
 ;;; go
 (add-hook 'go-mode-hook #'eglot-ensure)
-
+(add-hook 'go-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; preferences
 ;;; tab = 3 spaces
