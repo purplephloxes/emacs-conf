@@ -38,5 +38,5 @@
 (setq c-default-style '((other . "ellemtel")))
 
 ;;; slime config
+(slime-setup '(slime-fancy slime-quicklisp slime-asdf slime-mrepl))
 (setq inferior-lisp-program "sbcl")
-(setq slime-contribs '(slime-fancy))
