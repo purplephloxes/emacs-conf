@@ -18,6 +18,7 @@
 ;; lang modes
 (use-package go-mode) ;; for psws
 (use-package slime) ;; for lisping
+(use-package powershell) ;; powershell
 
 ;; preferences
 (setq-default tab-width 3)
