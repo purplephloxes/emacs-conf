@@ -45,3 +45,7 @@
     (save-selected-window
     (slime))))
 (add-hook 'slime-mode-hook #'my/slime-auto-start)
+
+;; powershell setup
+(setq powershell-indent 3
+      powershell-continuation-indent 3)
