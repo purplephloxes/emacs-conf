@@ -1,6 +1,7 @@
 ;; requires
 (require 'package)
 (require 'use-package)
+(require 'reftex) ;; latex
 
 ;; package management
 (setq package-archives
@@ -19,6 +20,7 @@
 (use-package go-mode) ;; for psws
 (use-package slime) ;; for lisping
 (use-package powershell) ;; powershell
+(use-package auctex) ;; latex
 
 ;; preferences
 (setq-default tab-width 3)
@@ -49,3 +51,12 @@
 ;; powershell setup
 (setq powershell-indent 3
       powershell-continuation-indent 3)
+
+;; latex setup
+;;; AUCTeX
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+;;; RefTex
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; w/ AUCTeX LaTeX mode
+(add-hook 'latex-mode-hook 'turn-on-reftex) ;; w/ Emacs latex mode
