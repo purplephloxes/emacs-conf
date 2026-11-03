@@ -6,8 +6,8 @@
 ;; package management
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
-	("nongnu" . "https://elpa.nongnu.org/nongnu/")
-	("melpa" . "https://melpa.org/packages/")))
+	     ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+	     ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -19,13 +19,12 @@
 ;; lang modes
 (use-package go-mode) ;; for psws
 (use-package slime) ;; for lisping
-(use-package powershell) ;; powershell
+(use-package powershell) ;; shellpower
 (use-package auctex) ;; latex
 
 ;; preferences
 (setq-default tab-width 3)
 (setq-default indent-tabs-mode nil)
-
 
 ;; cc setup
 (add-hook 'c-mode-hook #'eglot-ensure)
@@ -45,7 +44,7 @@
 (defun my/slime-auto-start ()
   (unless (slime-connected-p)
     (save-selected-window
-    (slime))))
+      (slime))))
 (add-hook 'slime-mode-hook #'my/slime-auto-start)
 
 ;; powershell setup
