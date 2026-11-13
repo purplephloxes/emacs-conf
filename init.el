@@ -51,6 +51,9 @@
 (setq powershell-indent 3
       powershell-continuation-indent 3)
 
+;; Makefile setup
+(add-hook 'makefile-mode (lambda () (setq indent-tabs-mode t)))
+
 ;; latex setup
 ;;; AUCTeX
 (setq TeX-auto-save t)
