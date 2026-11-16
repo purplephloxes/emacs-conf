@@ -72,6 +72,8 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
+;;; checking
+(add-hook 'LaTeX-mode-hook #'flymake-mode)
 ;;;; compilation
 (setq TeX-view-program-selection
       '((output-pdf "PDF Tools")))
