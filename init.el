@@ -21,6 +21,7 @@
 (use-package slime) ;; for lisping
 (use-package powershell) ;; shellpower
 (use-package auctex) ;; latex
+(use-package fennel-mode) ;; Fennel
 
 ;; preferences
 (setq-default tab-width 3)
@@ -51,11 +52,17 @@
 (setq powershell-indent 3
       powershell-continuation-indent 3)
 
+;; Fennel setup
+(add-hook 'fennel-mode-hook 'eglot-ensure)
+
+
 ;; Makefile setup
-(add-hook 'makefile-mode (lambda () (setq indent-tabs-mode t)))
+(add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; latex setup
 ;;; AUCTeX
+(setq LaTeX-indent-level 3)
+(setq TeX-brace-indent-level 3)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
