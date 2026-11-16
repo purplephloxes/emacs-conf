@@ -59,7 +59,6 @@
 ;; pdf-tools setup
 (pdf-loader-install)
 
-
 ;; Makefile setup
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
@@ -72,13 +71,13 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
-;;; checking
+;;; checking & typing
+(setq TeX-electric-math '("$" . "$"))
 (add-hook 'LaTeX-mode-hook #'flymake-mode)
 ;;;; compilation
 (setq TeX-view-program-selection
       '((output-pdf "PDF Tools")))
-(setq TeX-after-TeX-LaTeX-command-finished-hook
-      '(TeX-revert-document-buffer))
+(add-hook 'pdf-view-mode-hook #'pdf-view-roll-minor-mode)
 ;;; RefTex
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; w/ AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex) ;; w/ Emacs latex mode
