@@ -15,6 +15,7 @@
 
 ;; basics
 (use-package magit)
+(use-package pdf-tools) ;; pdf viewing
 
 ;; lang modes
 (use-package go-mode) ;; for psws
@@ -55,17 +56,27 @@
 ;; Fennel setup
 (add-hook 'fennel-mode-hook 'eglot-ensure)
 
+;; pdf-tools setup
+(pdf-loader-install)
+
 
 ;; Makefile setup
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
 ;; latex setup
 ;;; AUCTeX
+;;;; indentation
 (setq LaTeX-indent-level 3)
 (setq TeX-brace-indent-level 3)
+;;;; config
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
+;;;; compilation
+(setq TeX-view-program-selection
+      '((output-pdf "PDF Tools")))
+(setq TeX-after-TeX-LaTeX-command-finished-hook
+      '(TeX-revert-document-buffer))
 ;;; RefTex
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; w/ AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex) ;; w/ Emacs latex mode
