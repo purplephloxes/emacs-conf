@@ -78,6 +78,7 @@
 (setq TeX-view-program-selection
       '((output-pdf "PDF Tools")))
 (add-hook 'pdf-view-mode-hook #'pdf-view-roll-minor-mode)
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer) ;; auto-ref
 ;;; RefTex
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; w/ AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex) ;; w/ Emacs latex mode
