@@ -87,3 +87,14 @@
 ;;; RefTex
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; w/ AUCTeX LaTeX mode
 (add-hook 'latex-mode-hook 'turn-on-reftex) ;; w/ Emacs latex mode
+;;; custom stuff to make it not suck
+;;;; no fwd search on compile + no stolen focus
+(setq pdf-sync-forward-display-action ;; shoutout to u//karthink on r/emacs
+      '((display-buffer-reuse-window) ;; post title was "Restore focused window after compiling LaTeX document"
+        (inhibit-same-window . t) ;; OP was u/Abnormal_Form
+        (inhibit-select-window . t)))
+;;;; bind fwd search (.tex -> .pdf) (C-mouse1 for .pdf -> .tex)
+(with-eval-after-load 'tex
+  (define-key TeX-mode-map (kbd "C-c C-g")
+              #'pdf-sync-forward-search))
+
