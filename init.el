@@ -71,9 +71,13 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
-;;; checking & typing
+;;;; checking & typing
 (setq TeX-electric-math '("$" . "$"))
 (add-hook 'LaTeX-mode-hook #'flymake-mode)
+;;;; synctex
+(setq TeX-source-correlate-method 'synctex)
+(setq TeX-source-correlate-start-server t)
+(add-hook 'TeX-mode-hook #'TeX-source-correlate-mode)(setq TeX-PDF-mode t)
 ;;;; compilation
 (setq TeX-view-program-selection
       '((output-pdf "PDF Tools")))
