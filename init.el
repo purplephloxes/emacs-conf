@@ -77,7 +77,8 @@
 ;;;; synctex
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-start-server t)
-(add-hook 'TeX-mode-hook #'TeX-source-correlate-mode)(setq TeX-PDF-mode t)
+(add-hook 'TeX-mode-hook #'TeX-source-correlate-mode)
+(setq TeX-PDF-mode t)
 ;;;; compilation
 (setq TeX-view-program-selection
       '((output-pdf "PDF Tools")))
