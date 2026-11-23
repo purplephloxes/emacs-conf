@@ -62,6 +62,9 @@
 ;; Makefile setup
 (add-hook 'makefile-mode-hook (lambda () (setq indent-tabs-mode t)))
 
+;; FORTRAN setup
+(add-hook 'f90-mode-hook #'eglot-ensure)
+
 ;; latex setup
 ;;; AUCTeX
 ;;;; indentation
